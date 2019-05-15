@@ -1,10 +1,13 @@
 package com.wss.templateproject.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.wss.templateproject.mapper.PmsBrandMapper;
 import com.wss.templateproject.model.PmsBrand;
 import com.wss.templateproject.service.PmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -21,7 +24,6 @@ public class PmsServiceImpl implements PmsService {
 
     @Override
     public List<PmsBrand> listAllBrand() {
-
         return pmsBrandMapper.selectAll();
     }
 
@@ -32,21 +34,24 @@ public class PmsServiceImpl implements PmsService {
 
     @Override
     public int updateBrand(Long id, PmsBrand brand) {
-        return 0;
+        brand.setId(id);
+        return pmsBrandMapper.updateByPrimaryKeySelective(brand);
     }
 
     @Override
     public int deleteBrand(Long id) {
-        return 0;
+        return pmsBrandMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public List<PmsBrand> listBrand(int pageNum, int pageSize) {
-        return null;
+        PageHelper.startPage(pageNum, pageSize);
+        Example example = new Example(PmsBrand.class);
+        return pmsBrandMapper.selectByExample(example);
     }
 
     @Override
     public PmsBrand getBrand(Long id) {
-        return null;
+        return pmsBrandMapper.selectByPrimaryKey(id);
     }
 }
