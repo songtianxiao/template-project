@@ -1,4 +1,4 @@
-package com.wss.templateproject.common;
+package com.wss.templateproject.common.aop;
 
 import com.wss.templateproject.common.beans.ResultBean;
 import com.wss.templateproject.common.exceptions.CheckException;

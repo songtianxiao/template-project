@@ -1,10 +1,10 @@
 package com.wss.templateproject.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+import com.wss.templateproject.common.beans.CommonPage;
 import com.wss.templateproject.mapper.PmsBrandMapper;
 import com.wss.templateproject.model.PmsBrand;
-import com.wss.templateproject.service.PmsService;
+import com.wss.templateproject.service.PmsBrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -17,7 +17,7 @@ import java.util.List;
  * @描述
  */
 @Service
-public class PmsServiceImpl implements PmsService {
+public class PmsBrandServiceImpl implements PmsBrandService {
 
     @Autowired
     private PmsBrandMapper pmsBrandMapper;
@@ -44,10 +44,10 @@ public class PmsServiceImpl implements PmsService {
     }
 
     @Override
-    public List<PmsBrand> listBrand(int pageNum, int pageSize) {
+    public CommonPage<PmsBrand> listBrand(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         Example example = new Example(PmsBrand.class);
-        return pmsBrandMapper.selectByExample(example);
+        return CommonPage.restPage(pmsBrandMapper.selectByExample(example));
     }
 
     @Override

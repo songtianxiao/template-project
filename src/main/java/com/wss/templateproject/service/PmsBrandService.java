@@ -1,5 +1,6 @@
 package com.wss.templateproject.service;
 
+import com.wss.templateproject.common.beans.CommonPage;
 import com.wss.templateproject.model.PmsBrand;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  * @创建时间 2019-05-15 21:34
  * @描述
  */
-public interface PmsService {
+public interface PmsBrandService {
 
     List<PmsBrand> listAllBrand();
 
@@ -19,7 +20,7 @@ public interface PmsService {
 
     int deleteBrand(Long id);
 
-    List<PmsBrand> listBrand(int pageNum, int pageSize);
+    CommonPage<PmsBrand> listBrand(int pageNum, int pageSize);
 
     PmsBrand getBrand(Long id);
 }
