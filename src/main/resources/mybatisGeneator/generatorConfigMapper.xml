@@ -8,7 +8,7 @@
 
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
         <property name="javaFileEncoding" value="UTF-8"/>
-        <!--配置是否使用通用 Mapper 自带的注释扩展，默认 true-->
+        <!--使用自定义生成model的代码注释 设置为false, 默认为true使用通用mapper的注释方法-->
         <!--<property name="useMapperCommentGenerator" value="false"/>-->
 
         <!--通用 Mapper 插件，可以生成带注解的实体类-->
@@ -18,18 +18,13 @@
             <property name="caseSensitive" value="true"/>
             <!--是否强制生成注解，默认 false-->
             <property name="forceAnnotation" value="true"/>
+            <!--是否生成swagger注解-->
+            <property name="swagger" value="true"/>
             <!--lombok 增加 model 代码生成时，可以直接生成 lombok 的 -->
             <property name="lombok" value="Data"/>
             <property name="beginningDelimiter" value="`"/>
             <property name="endingDelimiter" value="`"/>
         </plugin>
-        <!--可以自定义生成model的代码注释-->
-        <!--<commentGenerator type="com.wss.templateproject.mybatisGeneator.CommentGenerator">-->
-            <!--&lt;!&ndash; 是否去除自动生成的注释 true：是 ： false:否 &ndash;&gt;-->
-            <!--<property name="suppressAllComments" value="true"/>-->
-            <!--<property name="suppressDate" value="true"/>-->
-            <!--<property name="addRemarkComments" value="true"/>-->
-        <!--</commentGenerator>-->
         <jdbcConnection driverClass="${jdbc.driverClass}"
                         connectionURL="${jdbc.connectionURL}"
                         userId="${jdbc.userId}"
@@ -41,9 +36,9 @@
         <!--指定生成model的路径-->
         <javaModelGenerator targetPackage="com.wss.templateproject.model" targetProject="src\main\java"/>
         <!--指定生成mapper接口的的路径-->
-        <sqlMapGenerator  targetPackage="mybatisMapper" targetProject="src\main\resources"/>
+        <!--<sqlMapGenerator  targetPackage="mybatisMapper" targetProject="src\main\resources"/>-->
         <!--指定生成mapper.xml的路径-->
-        <javaClientGenerator targetPackage="com.wss.templateproject.mapper" targetProject="src\main\java" type="XMLMAPPER"/>
+        <!--<javaClientGenerator targetPackage="com.wss.templateproject.mapper" targetProject="src\main\java" type="XMLMAPPER"/>-->
 
         <!--生成全部表tableName设为%-->
         <table tableName="pms_brand">

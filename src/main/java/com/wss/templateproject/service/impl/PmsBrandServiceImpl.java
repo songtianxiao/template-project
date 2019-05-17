@@ -44,7 +44,7 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     }
 
     @Override
-    public CommonPage<PmsBrand> listBrand(int pageNum, int pageSize) {
+    public CommonPage<PmsBrand> listBrand(PmsBrand pmsBrand,Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         Example example = new Example(PmsBrand.class);
         return CommonPage.restPage(pmsBrandMapper.selectByExample(example));

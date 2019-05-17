@@ -20,7 +20,7 @@ public interface PmsBrandService {
 
     int deleteBrand(Long id);
 
-    CommonPage<PmsBrand> listBrand(int pageNum, int pageSize);
+    CommonPage<PmsBrand> listBrand(PmsBrand brand,Integer pageNum, Integer pageSize);
 
     PmsBrand getBrand(Long id);
 }
