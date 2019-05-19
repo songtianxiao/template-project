@@ -56,21 +56,6 @@ public class ControllerAOP {
             result.setMsg("Unlogin");
             result.setCode(ResultBean.NO_LOGIN);
         }
-        //shiro异常： 登陆失败，如密码错误
-//        else if (e instanceof IncorrectCredentialsException) {
-//            result.setMsg("Login failed. Try xwjie/123456");
-//            result.setCode(ResultBean.FAIL);
-//        }
-        // shiro异常：没有权限
-//        else if (e instanceof UnauthorizedException) {
-//            result.setMsg("NO PERMISSION: " + e.getMessage());
-//            result.setCode(ResultBean.NO_PERMISSION);
-//        }
-        //  shiro抛出
-//        else if (e instanceof AuthorizationException) {
-//            result.setMsg("Unlogin");
-//            result.setCode(ResultBean.NO_LOGIN);
-//        }
         else {
             logger.error(pjp.getSignature() + " error ", e);
 
