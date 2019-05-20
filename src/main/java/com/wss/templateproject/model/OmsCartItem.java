@@ -139,6 +139,6 @@ public class OmsCartItem {
      * 商品销售属性:[{"key":"颜色","value":"颜色"},{"key":"容量","value":"4G"}]
      */
     @Column(name = "`product_attr`")
-    @ApiModelProperty("商品销售属性:[{"key":"颜色","value":"颜色"},{"key":"容量","value":"4G"}]")
+    @ApiModelProperty("商品销售属性:[{'key':'颜色','value':'颜色'},{'key':'容量','value':'4G'}]")
     private String productAttr;
 }

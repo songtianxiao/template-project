@@ -6,6 +6,7 @@ import com.wss.templateproject.componnet.RestfulAccessDeniedHandler;
 import com.wss.templateproject.dto.AdminUserDetails;
 import com.wss.templateproject.model.UmsAdmin;
 import com.wss.templateproject.model.UmsPermission;
+import com.wss.templateproject.service.UmsAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

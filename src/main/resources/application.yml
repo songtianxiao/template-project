@@ -22,7 +22,7 @@ spring:
 #mybatis
 mybatis:
   mapper-locations:
-    -classpath:mybatisMapper/*.xml
+    classpath*:mybatisMapper/*.xml
   type-aliases-package:
     com.wss.templateproject.model
 

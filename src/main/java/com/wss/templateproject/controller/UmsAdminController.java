@@ -4,6 +4,7 @@ import com.wss.templateproject.common.beans.ResultBean;
 import com.wss.templateproject.dto.UmsAdminLoginParam;
 import com.wss.templateproject.model.UmsAdmin;
 import com.wss.templateproject.model.UmsPermission;
+import com.wss.templateproject.service.UmsAdminService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,13 +37,10 @@ public class UmsAdminController {
     @ResponseBody
     public ResultBean<Map> login(@RequestBody UmsAdminLoginParam umsAdminLoginParam, BindingResult result) {
         String token = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
-        if (token == null) {
-            return CommonResult.validateFailed("用户名或密码错误");
-        }
         Map<String, String> tokenMap = new HashMap<>();
         tokenMap.put("token", token);
         tokenMap.put("tokenHead", tokenHead);
-        return CommonResult.success(tokenMap);
+        return new ResultBean(tokenMap);
     }
 
     @ApiOperation("获取用户所有权限（包括+-权限）")

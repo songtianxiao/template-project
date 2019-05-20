@@ -36,9 +36,9 @@
         <!--指定生成model的路径-->
         <javaModelGenerator targetPackage="com.wss.templateproject.model" targetProject="src\main\java"/>
         <!--指定生成mapper接口的的路径-->
-        <!--<sqlMapGenerator  targetPackage="mybatisMapper" targetProject="src\main\resources"/>-->
+        <sqlMapGenerator  targetPackage="mybatisMapper" targetProject="src\main\resources"/>
         <!--指定生成mapper.xml的路径-->
-        <!--<javaClientGenerator targetPackage="com.wss.templateproject.mapper" targetProject="src\main\java" type="XMLMAPPER"/>-->
+        <javaClientGenerator targetPackage="com.wss.templateproject.mapper" targetProject="src\main\java" type="XMLMAPPER"/>
 
         <!--生成全部表tableName设为%-->
         <table tableName="%">

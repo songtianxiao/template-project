@@ -10,6 +10,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 
 
@@ -55,6 +56,10 @@ public class ControllerAOP {
         else if (e instanceof UnloginException) {
             result.setMsg("Unlogin");
             result.setCode(ResultBean.NO_LOGIN);
+        }
+        else if (e instanceof AuthenticationException) {
+            result.setMsg("登陆异常!");
+            result.setCode(ResultBean.FAIL);
         }
         else {
             logger.error(pjp.getSignature() + " error ", e);
